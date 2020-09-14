@@ -4,9 +4,10 @@ import com.ossez.edtestbank.common.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +17,9 @@ public class QIndex extends DataObject implements Serializable {
     private static final long serialVersionUID = -4012870143841922864L;
 
     private String questions;
+    @OneToMany(mappedBy = "qIndex")
+    @OrderBy("questionNumber ASC")
+    private List<QTitle> qTitleList = new ArrayList<>();
 
 
     public QIndex() {
@@ -46,6 +50,14 @@ public class QIndex extends DataObject implements Serializable {
                 .appendSuper(super.equals(o))
                 .append(questions, qIndex.questions)
                 .isEquals();
+    }
+
+    public List<QTitle> getqTitleList() {
+        return qTitleList;
+    }
+
+    public void setqTitleList(List<QTitle> qTitleList) {
+        this.qTitleList = qTitleList;
     }
 
     @Override

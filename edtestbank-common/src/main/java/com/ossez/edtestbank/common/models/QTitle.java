@@ -4,8 +4,8 @@ import com.ossez.edtestbank.common.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
@@ -13,13 +13,35 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(catalog = "edtestbank", name = "QTitle")
-public class QTitle extends DataObject implements java.io.Serializable {
+public class QTitle extends DataObject implements Serializable {
     private static final long serialVersionUID = -3772701853278423848L;
 
+    @ManyToOne
+    private QIndex qIndex;
+    @OneToOne
+    private QDescription qDescription;
+
     private String questionTitle;
+    private int questionNumber;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public QIndex getqIndex() {
+        return qIndex;
+    }
+
+    public void setqIndex(QIndex qIndex) {
+        this.qIndex = qIndex;
+    }
+
+    public QDescription getqDescription() {
+        return qDescription;
+    }
+
+    public void setqDescription(QDescription qDescription) {
+        this.qDescription = qDescription;
     }
 
     public String getQuestionTitle() {
@@ -28,6 +50,14 @@ public class QTitle extends DataObject implements java.io.Serializable {
 
     public void setQuestionTitle(String questionTitle) {
         this.questionTitle = questionTitle;
+    }
+
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public void setQuestionNumber(int questionNumber) {
+        this.questionNumber = questionNumber;
     }
 
     @Override

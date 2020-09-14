@@ -6,6 +6,7 @@ import com.ossez.edtestbank.common.Factory;
 import com.ossez.edtestbank.common.mls.Provider;
 import com.ossez.edtestbank.common.mls.RawOffice;
 import com.ossez.edtestbank.common.models.QIndex;
+import com.ossez.edtestbank.common.models.QTitle;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
@@ -18,7 +19,6 @@ public class QuestionFactory {
 
 
     /**
-	 *
      * @param id
      * @return
      */
@@ -33,18 +33,18 @@ public class QuestionFactory {
     }
 
     /**
-     * Gets the feed by its id.
+     * QTitle
      *
      * @param id
      * @return
      */
-    public static Provider get(Long id) {
-        Object feed = Factory.getSession().get(Provider.class, id);
+    public static QTitle getQTitleById(Long id) {
+        Object obj = Factory.getSession().get(QTitle.class, id);
 
-        if (feed == null)
+        if (ObjectUtils.allNotNull(obj))
+            return (QTitle) obj;
+        else
             return null;
-
-        return (Provider) feed;
     }
 
     /**

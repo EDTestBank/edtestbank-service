@@ -4,6 +4,7 @@ import com.ossez.edtestbank.common.Factory;
 import com.ossez.edtestbank.common.ValidationException;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.models.QIndex;
+import com.ossez.edtestbank.common.models.QTitle;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -36,12 +37,29 @@ public class QuestionTest {
     @Test
     public void testGetQIndex() throws ValidationException {
         QIndex qIndex = QuestionFactory.getQIndexById(1L);
-        logger.debug("Questions Content - {}", qIndex.getQuestions());
+        logger.debug("Questions Content - {}", qIndex.getqTitleList().size());
+        logger.debug("Questions Content - {}", qIndex.getqTitleList().get(0).getqDescription().getDescriptionCtx());
+
+        for (QTitle qTitle: qIndex.getqTitleList()) {
+            logger.debug("Questions Title Ctx - {}", qTitle.getQuestionTitle());
+        }
+
 
         // make sure the customer was found
 
         assertNotNull(qIndex);
-
     }
 
+    /**
+     * Tests search functionality for the customer object.
+     */
+    @Test
+    public void testGetQTitle() throws ValidationException {
+        QTitle qTitle = QuestionFactory.getQTitleById(1L);
+        logger.debug("Question Title Content - {}", qTitle.getQuestionTitle());
+    }
+
+
 }
+
+
