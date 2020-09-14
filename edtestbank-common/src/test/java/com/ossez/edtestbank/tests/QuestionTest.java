@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * Question Testing
  */
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class QuestionTest {
     private static Logger logger = LoggerFactory.getLogger(QuestionTest.class);
 
