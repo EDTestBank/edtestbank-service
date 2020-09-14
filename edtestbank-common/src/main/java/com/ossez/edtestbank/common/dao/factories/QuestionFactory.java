@@ -48,9 +48,9 @@ public class QuestionFactory {
     }
 
     /**
-     * Gets a Provider by name.
      *
-     * @param name
+     * @param provider
+     * @param officeRID
      * @return
      */
     public static RawOffice get(Provider provider, String officeRID) {
@@ -94,9 +94,8 @@ public class QuestionFactory {
     }
 
     /**
-     * Deletes the specified feed
      *
-     * @param listing
+     * @param provider
      */
     public static void delete(Provider provider) {
         Factory.delete(provider);
