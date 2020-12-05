@@ -17,20 +17,8 @@
 
     <dependencies>
 
-        <!-- LOG -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.13.3</version>
-        </dependency>
 
-        <!-- COMMONS -->
+        <!-- APACHE COMMONS -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -41,16 +29,10 @@
             <artifactId>org.apache.commons.codec</artifactId>
             <version>1.8</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-vfs2</artifactId>
             <version>2.6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.8</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
@@ -67,6 +49,14 @@
             <artifactId>commons-net</artifactId>
             <version>3.7</version>
         </dependency>
+
+        <!-- APACHE -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.25</version>
+        </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -191,6 +181,24 @@
             <version>4.0.1</version>
         </dependency>
 
+        <!-- SPRING FRAMEWORK BOOT -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+
+        <!-- SPRING SECURITY-->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>2.3.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>1.1.1.RELEASE</version>
+        </dependency>
+
         <!-- BIRT -->
         <dependency>
             <groupId>org.ow2.orchestra.eclipse.birt</groupId>
@@ -214,6 +222,19 @@
             <artifactId>jclouds-all</artifactId>
             <version>1.9.3</version>
         </dependency>
+
+        <!-- CSV AND XLSX -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
 
         <!-- DWR -->
         <dependency>
