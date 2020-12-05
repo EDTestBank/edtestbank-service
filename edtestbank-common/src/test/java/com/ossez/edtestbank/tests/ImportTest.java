@@ -3,8 +3,7 @@ package com.ossez.edtestbank.tests;
 import com.google.api.client.util.Lists;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
-import com.ossez.edtestbank.common.Factory;
-import com.ossez.edtestbank.common.ValidationException;
+import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.models.CacheTestBankImport;
 import com.ossez.edtestbank.common.models.QDescription;
@@ -50,11 +49,9 @@ public class ImportTest {
 
     /**
      * testImportCaseStudyAnalysis
-     *
-     * @throws ValidationException
      */
     @Test
-    public void testImportCaseStudyAnalysis() throws ValidationException {
+    public void testImportCaseStudyAnalysis() {
 
 
 
@@ -96,7 +93,7 @@ public class ImportTest {
                     cacheTestBankImport.setDescription(StringUtils.trimToEmpty(strArray[1]));
                     cacheTestBankImport.setCsvFileName("BAT");
 
-                    cacheTestBankImportId = QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
+//                    cacheTestBankImportId = QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
 
                     logger.debug("Saved Index id - {}", cacheTestBankImportId);
                 } else if (!StringUtils.isNoneBlank(descriptionId) && StringUtils.equalsIgnoreCase(sourceDescriptionId, descriptionParentId)) {
@@ -115,7 +112,7 @@ public class ImportTest {
                     cacheTestBankImport.setCsvFileName("BAT");
 
 
-                    QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
+//                    QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
                     logger.debug("Saved Index id - {}", cacheTestBankImportId);
                 }
 
@@ -134,12 +131,12 @@ public class ImportTest {
     }
 
     /**
-     * testImportCaseStudyAnalysis
+     *
      *
      * @throws ValidationException
      */
     @Test
-    public void testImportMultipleChoice() throws ValidationException {
+    public void testImportMultipleChoice()  {
 //       Reader reader= Files.newBufferedReader(Paths.get(
 //               ClassLoader.getSystemResource("csv/twoColumn.csv").toURI()));
 
@@ -180,7 +177,7 @@ public class ImportTest {
                 cacheTestBankImport.setAnswerNote(StringUtils.trimToEmpty(strArray[8]));
                 cacheTestBankImport.setCsvFileName(csvFileName);
 
-                QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
+//                QuestionFactory.saveCacheTestBankImport(cacheTestBankImport);
                 logger.debug("Saved Index id - {}", cacheTestBankImportId);
 
 
@@ -201,7 +198,7 @@ public class ImportTest {
      * Tests search functionality for the customer object.
      */
     @Test
-    public void testGetQTitle() throws ValidationException {
+    public void testGetQTitle()  {
         QTitle qTitle = QuestionFactory.getQTitleById(1L);
         logger.debug("Question Title Content - {}", qTitle.getQuestionTitle());
     }

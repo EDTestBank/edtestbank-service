@@ -1,7 +1,6 @@
 package com.ossez.edtestbank.tests;
 
-import com.ossez.edtestbank.common.Factory;
-import com.ossez.edtestbank.common.ValidationException;
+import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.models.QIndex;
 import com.ossez.edtestbank.common.models.QTitle;
@@ -35,7 +34,7 @@ public class QuestionTest {
      * Tests search functionality for the customer object.
      */
     @Test
-    public void testGetQIndex() throws ValidationException {
+    public void testGetQIndex()  {
         QIndex qIndex = QuestionFactory.getQIndexById(1L);
         logger.debug("Questions Content - {}", qIndex.getqTitleList().size());
         logger.debug("Questions Content - {}", qIndex.getqTitleList().get(0).getqDescription().getDescriptionCtx());
@@ -54,7 +53,7 @@ public class QuestionTest {
      * Tests search functionality for the customer object.
      */
     @Test
-    public void testGetQTitle() throws ValidationException {
+    public void testGetQTitle() {
         QTitle qTitle = QuestionFactory.getQTitleById(1L);
         logger.debug("Question Title Content - {}", qTitle.getQuestionTitle());
     }

@@ -13,10 +13,8 @@ import org.hibernate.persister.entity.EntityPersister;
  * @author YuCheng Hu
  */
 public class DeleteEventListener extends DefaultDeleteEventListener {
-    /**
-     * Serial Version UID
-     */
-    private static final long serialVersionUID = -1621295778243430716L;
+
+    private static final long serialVersionUID = 6910674958681477229L;
 
     /**
      * Transient Entity
