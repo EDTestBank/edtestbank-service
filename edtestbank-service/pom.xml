@@ -16,7 +16,6 @@
     </parent>
 
     <dependencies>
-
         <!-- COMMON -->
         <dependency>
             <groupId>com.ossez.edtestbank</groupId>
