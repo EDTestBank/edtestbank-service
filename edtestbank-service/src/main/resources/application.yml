@@ -1,0 +1,8 @@
+#KEY-VALUE Configuration
+k-v:
+  remoteUrl: key-value
+
+spring:
+  output:
+    ansi:
+      enabled: always
