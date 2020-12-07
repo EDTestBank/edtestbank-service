@@ -25,21 +25,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
-    @Value(" ${security.oauth2.resource.jwt.key-uri}")
-    private String keySetUri;
-
-    @Value("${security.oauth2.client.accepted-audience-id}")
-    private String audienceId;
-
-    @Value("${security.oauth2.client.accepted-client-id}")
-    private String clientId;
-
-    @Value("${security.oauth2.aad.aliases}")
-    private String[] aadAliases;
-
-    @Value("${security.oauth2.accepted.tenants}")
-    private String[] acceptedTenants;
-
     private final String AAD_SCOPE_CLAIM = "scp";
 
     @Bean
