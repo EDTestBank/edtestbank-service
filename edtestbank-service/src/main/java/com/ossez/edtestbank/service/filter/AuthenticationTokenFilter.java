@@ -32,14 +32,6 @@ import java.util.Collections;
 public class AuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationTokenFilter.class);
 
-    // THE VALUE OF ID FOR ROLE OF USER
-    @Value("${sco.azure.activedirectory.role-user.group-id}")
-    private String roleUserGroupId;
-
-    @Value("${sco.azure.activedirectory.role-admin.group-id}")
-    private String roleAdminGroupId;
-
-
     /**
      * @param httpServletRequest
      * @param httpServletResponse
@@ -93,15 +85,7 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
                 username = (String) claims.getClaim("name");
                 JSONArray groups = (JSONArray) claims.getClaim("groups");
 
-                if (ObjectUtils.isNotEmpty(groups) && groups.size() > 0) {
-                    if (StringUtils.containsAny(groups.toJSONString(), roleAdminGroupId)) {
-                        role = "ROLE_ADMIN";
-                    } else if (StringUtils.containsAny(groups.toJSONString(), roleUserGroupId)) {
-                        role = "ROLE_USER";
-                    }
-                } else {
-                    role = "ROLE_ADMIN";
-                }
+                role = "ROLE_ADMIN";
             } catch (Exception e) {
                 e.printStackTrace();
             }
