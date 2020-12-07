@@ -27,7 +27,7 @@ public class SearchController {
      * @return Value of string
      */
 
-    @GetMapping("/user")
+    @GetMapping("/question-index")
     public ResponseEntity<?> searchUser() {
         SearchResponse searchResponse = new SearchResponse();
         searchResponse.setUuid(UUID.randomUUID().toString());
