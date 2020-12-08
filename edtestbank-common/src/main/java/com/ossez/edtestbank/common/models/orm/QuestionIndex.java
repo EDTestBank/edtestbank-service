@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models;
+package com.ossez.edtestbank.common.models.orm;
 
 import com.ossez.edtestbank.common.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -11,18 +11,18 @@ import java.util.List;
 
 
 @Entity
-@Table(catalog = "edtestbank", name = "QIndex")
-public class QIndex extends DataObject implements Serializable {
+@Table(catalog = "edtestbank", name = "QuestionIndex")
+public class QuestionIndex extends DataObject implements Serializable {
 
     private static final long serialVersionUID = -4012870143841922864L;
 
     private String questions;
-    @OneToMany(mappedBy = "qIndex")
+    @OneToMany(mappedBy = "questionIndex")
     @OrderBy("questionNumber ASC")
     private List<QTitle> qTitleList = new ArrayList<>();
 
 
-    public QIndex() {
+    public QuestionIndex() {
     }
 
 
@@ -44,11 +44,11 @@ public class QIndex extends DataObject implements Serializable {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        QIndex qIndex = (QIndex) o;
+        QuestionIndex questionIndex = (QuestionIndex) o;
 
         return new EqualsBuilder()
                 .appendSuper(super.equals(o))
-                .append(questions, qIndex.questions)
+                .append(questions, questionIndex.questions)
                 .isEquals();
     }
 

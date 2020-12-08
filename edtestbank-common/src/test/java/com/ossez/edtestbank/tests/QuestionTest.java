@@ -2,8 +2,9 @@ package com.ossez.edtestbank.tests;
 
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
-import com.ossez.edtestbank.common.models.QIndex;
-import com.ossez.edtestbank.common.models.QTitle;
+import com.ossez.edtestbank.common.models.orm.QuestionIndex;
+import com.ossez.edtestbank.common.models.orm.QTitle;
+import com.ossez.edtestbank.common.service.QuestionService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -34,19 +35,18 @@ public class QuestionTest {
      * Tests search functionality for the customer object.
      */
     @Test
-    public void testGetQIndex()  {
-        QIndex qIndex = QuestionFactory.getQIndexById(1L);
-        logger.debug("Questions Content - {}", qIndex.getqTitleList().size());
-        logger.debug("Questions Content - {}", qIndex.getqTitleList().get(0).getqDescription().getDescriptionCtx());
+    public void testGetQuestionIndex()  {
+        QuestionIndex questionIndex = QuestionService.getQuestionIndex(1L);
+        logger.debug("Questions Content - {}", questionIndex.getqTitleList().size());
+//        logger.debug("Questions Content - {}", questionIndex.getqTitleList().get(0).getqDescription().getDescriptionCtx());
 
-        for (QTitle qTitle: qIndex.getqTitleList()) {
+        for (QTitle qTitle: questionIndex.getqTitleList()) {
             logger.debug("Questions Title Ctx - {}", qTitle.getQuestionTitle());
         }
 
 
         // make sure the customer was found
-
-        assertNotNull(qIndex);
+        assertNotNull(questionIndex);
     }
 
     /**

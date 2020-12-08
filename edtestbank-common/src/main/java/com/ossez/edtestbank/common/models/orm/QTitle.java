@@ -1,6 +1,7 @@
-package com.ossez.edtestbank.common.models;
+package com.ossez.edtestbank.common.models.orm;
 
 import com.ossez.edtestbank.common.DataObject;
+import com.ossez.edtestbank.common.models.QDescription;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -17,7 +18,7 @@ public class QTitle extends DataObject implements Serializable {
     private static final long serialVersionUID = -3772701853278423848L;
 
     @ManyToOne
-    private QIndex qIndex;
+    private QuestionIndex questionIndex;
     @OneToOne
     private QDescription qDescription;
 
@@ -28,12 +29,12 @@ public class QTitle extends DataObject implements Serializable {
         return serialVersionUID;
     }
 
-    public QIndex getqIndex() {
-        return qIndex;
+    public QuestionIndex getQuestionIndex() {
+        return questionIndex;
     }
 
-    public void setqIndex(QIndex qIndex) {
-        this.qIndex = qIndex;
+    public void setQuestionIndex(QuestionIndex questionIndex) {
+        this.questionIndex = questionIndex;
     }
 
     public QDescription getqDescription() {
