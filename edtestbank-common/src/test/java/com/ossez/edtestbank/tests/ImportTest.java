@@ -1,17 +1,15 @@
 package com.ossez.edtestbank.tests;
 
-import com.google.api.client.util.Lists;
+
+import com.google.common.collect.Lists;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.models.CacheTestBankImport;
-import com.ossez.edtestbank.common.models.QDescription;
-import com.ossez.edtestbank.common.models.QIndex;
-import com.ossez.edtestbank.common.models.QTitle;
+import com.ossez.edtestbank.common.models.orm.QTitle;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,10 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
 
@@ -132,8 +127,6 @@ public class ImportTest {
 
     /**
      *
-     *
-     * @throws ValidationException
      */
     @Test
     public void testImportMultipleChoice()  {

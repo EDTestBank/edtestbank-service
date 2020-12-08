@@ -1,33 +1,21 @@
 package com.ossez.edtestbank.common.dao.factories;
 
-import java.util.Date;
-
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.QIndex;
-import com.ossez.edtestbank.common.models.QTitle;
+import com.ossez.edtestbank.common.models.orm.QuestionIndex;
+import com.ossez.edtestbank.common.models.orm.QTitle;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class QuestionFactory {
     private final static Logger logger = LoggerFactory.getLogger(QuestionFactory.class);
 
-
     /**
      * @param id
      * @return
      */
-    public static QIndex getQIndexById(Long id) {
-
-        Object obj = Factory.getSession().get(QIndex.class, id);
-
-        if (ObjectUtils.allNotNull(obj))
-            return (QIndex) obj;
-        else
-            return null;
+    public static QuestionIndex getQuestionIndex(Long id) {
+        return (QuestionIndex) Factory.getSession().get(QuestionIndex.class, id);
     }
 
     /**
@@ -44,5 +32,5 @@ public class QuestionFactory {
         else
             return null;
     }
-    
+
 }
