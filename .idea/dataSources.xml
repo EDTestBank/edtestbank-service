@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MariaDB - @192.168.0.201" uuid="4a3ba554-e7aa-4c3b-a4df-2c820aa51285">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="f3ccfeff-62ea-460a-b453-57ac8aef8d79">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/WorkDir/ossez-com/EDTestBank/Source-Code/edtestbank-service/edtestbank-common/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://192.168.0.201:3306</jdbc-url>
+      <jdbc-url>jdbc:mariadb://192.168.0.201:3306/edtestbank</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="edtestbank-service/Hibernate" uuid="3bb4a62b-aa14-4e58-96b5-076fba373199">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://192.168.0.201:3306/edtestbank</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
