@@ -22,10 +22,12 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <oa-app.version>${project.version}</oa-app.version>
 
+        <!-- VERSIONS -->
+        <logback.version>1.2.3</logback.version>
+        <junit-jupiter.version>5.6.2</junit-jupiter.version>
+        <spring-security.version>5.3.4.RELEASE</spring-security.version>
 
         <!-- CUSTOM VERSIONS (not covered by spring platform) -->
-        <!-- Do not add a new property here unless you've validated the property does not already exist in a parent pom -->
-        <!-- http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#appendix-dependency-versions -->
         <assertj-core.version>3.2.0</assertj-core.version>
         <jaxb2-plugin.version>0.12.3</jaxb2-plugin.version>
         <jaxb2-runtime.version>0.9.3</jaxb2-runtime.version>
@@ -172,30 +174,28 @@
         </plugins>
     </build>
 
-    <pluginRepositories>
-    </pluginRepositories>
+    <!-- MAVEN REPO CONF -->
+    <!-- REPO -->
+    <repositories></repositories>
 
-    <repositories>
+    <!-- PLUGIN -->
+    <pluginRepositories></pluginRepositories>
 
-    </repositories>
+    <!-- DISTRIBUTION -->
+    <distributionManagement></distributionManagement>
 
-    <distributionManagement>
-
-    </distributionManagement>
-
+    <!-- MAVEN REPORT CONF -->
     <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.17</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>checkstyle</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>
