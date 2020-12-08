@@ -30,8 +30,8 @@
 		<property name="hibernate.search.default.directory_provider">filesystem</property>
 		<property name="hibernate.search.default.indexBase">/var/lucene/indexes/5</property>
 
-		<mapping class="com.ossez.edtestbank.common.models.QIndex"/>
-		<mapping class="com.ossez.edtestbank.common.models.QTitle"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionIndex"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.QTitle"/>
 		<mapping class="com.ossez.edtestbank.common.models.QDescription"/>
 		<mapping class="com.ossez.edtestbank.common.models.CacheTestBankImport"/>
 		<event type="delete">
