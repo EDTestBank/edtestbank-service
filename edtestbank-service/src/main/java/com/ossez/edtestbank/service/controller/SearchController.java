@@ -22,11 +22,10 @@ public class SearchController {
 
 
     /**
-     * Search User
+     * Search Question Index
      *
-     * @return Value of string
+     * @return
      */
-
     @GetMapping("/question-index")
     public ResponseEntity<?> searchUser() {
         SearchResponse searchResponse = new SearchResponse();
@@ -35,16 +34,4 @@ public class SearchController {
         return new ResponseEntity<SearchResponse>(searchResponse, HttpStatus.OK);
     }
 
-    /**
-     * Search Manufacturer
-     *
-     * @return Value of String
-     */
-    @GetMapping("/manufacturer")
-    @ResponseBody
-    public ResponseEntity<?> searchManufacturer() {
-        String searchStr = "Search Manufacturer";
-
-        return new ResponseEntity<String>(searchStr, HttpStatus.OK);
-    }
 }
