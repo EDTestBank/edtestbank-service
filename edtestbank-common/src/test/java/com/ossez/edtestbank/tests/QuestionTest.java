@@ -23,12 +23,12 @@ public class QuestionTest {
 
     @BeforeAll
     protected void setUp() throws Exception {
-        Factory.beginTransaction();
+//        Factory.beginTransaction();
     }
 
     @AfterAll
     protected void tearDown() throws Exception {
-        Factory.rollbackTransaction();
+//        Factory.rollbackTransaction();
     }
 
     /**
