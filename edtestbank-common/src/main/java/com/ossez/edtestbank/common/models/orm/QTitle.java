@@ -1,5 +1,6 @@
 package com.ossez.edtestbank.common.models.orm;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.ossez.edtestbank.common.DataObject;
 import com.ossez.edtestbank.common.models.QDescription;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -18,7 +19,9 @@ public class QTitle extends DataObject implements Serializable {
     private static final long serialVersionUID = -3772701853278423848L;
 
     @ManyToOne
+    @JsonBackReference
     private QuestionIndex questionIndex;
+
     @OneToOne
     private QDescription qDescription;
 

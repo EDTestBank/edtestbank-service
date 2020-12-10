@@ -11,11 +11,25 @@ public class QuestionFactory {
     private final static Logger logger = LoggerFactory.getLogger(QuestionFactory.class);
 
     /**
+     * Search QuestionIndex by id
+     *
      * @param id
      * @return
      */
     public static QuestionIndex getQuestionIndex(Long id) {
-        return (QuestionIndex) Factory.getSession().get(QuestionIndex.class, id);
+        Object obj = ObjectUtils.NULL;
+
+        try {
+            Factory.beginTransaction();
+            obj = Factory.getSession().get(QuestionIndex.class, id);
+
+            Factory.commitTransaction();
+        } catch (Exception e) {
+            logger.error("Get QuestionIndex data error.", e);
+            Factory.rollbackTransaction();
+        }
+
+        return (QuestionIndex) obj;
     }
 
     /**
