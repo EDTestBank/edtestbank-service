@@ -34,7 +34,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="DATADOG"/>
     </root>
 
