@@ -6,3 +6,9 @@ spring:
   output:
     ansi:
       enabled: always
+server:
+  servlet:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
