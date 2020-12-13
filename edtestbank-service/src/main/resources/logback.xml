@@ -32,6 +32,9 @@
     <!-- APPENDER-REF -->
     <root level="debug">
         <appender-ref ref="STDOUT"/>
+    </root>
+
+    <root level="debug">
         <appender-ref ref="DATADOG"/>
     </root>
 
