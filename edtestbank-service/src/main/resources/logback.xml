@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
     <!-- LOGGER -->
-    <logger name="io.netty" level="INFO" />
+    <logger name="io.netty" level="INFO"/>
 
     <!-- APPENDER -->
     <appender name="STDOUT"
@@ -16,18 +16,23 @@
         </encoder>
     </appender>
 
-    <appender name="aiAppender"
-              class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
-        <instrumentationKey>${APPSETTING_APPLICATION_INSTRUMENTATION_KEY}</instrumentationKey>
+    <appender name="DATADOG" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <remoteHost>intake.logs.datadoghq.com</remoteHost>
+        <port>10514</port>
+        <keepAliveDuration>20 seconds</keepAliveDuration>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <prefix class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>e1955dbfaa3968af1196748decfe0275 %mdc{keyThatDoesNotExist}</pattern>
+                </layout>
+            </prefix>
+        </encoder>
     </appender>
-
 
     <!-- APPENDER-REF -->
     <root level="debug">
-        <appender-ref ref="aiAppender"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DATADOG"/>
     </root>
 
-    <root level="debug">
-        <appender-ref ref="STDOUT"/>
-    </root>
 </configuration>
