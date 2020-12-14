@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models;
+package com.ossez.edtestbank.common.models.orm;
 
 import com.ossez.edtestbank.common.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -10,14 +10,14 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(catalog = "edtestbank", name = "QDescription")
-public class QDescription extends DataObject implements Serializable {
+@Table(catalog = "edtestbank", name = "QUESTION_DESCRIPTION")
+public class QuestionDescription extends DataObject implements Serializable {
     private static final long serialVersionUID = 4447958368094347892L;
 
     private String descriptionCtx;
 
 
-    public QDescription() {
+    public QuestionDescription() {
     }
 
     public static long getSerialVersionUID() {
@@ -38,7 +38,7 @@ public class QDescription extends DataObject implements Serializable {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        QDescription that = (QDescription) o;
+        QuestionDescription that = (QuestionDescription) o;
 
         return new EqualsBuilder()
                 .appendSuper(super.equals(o))

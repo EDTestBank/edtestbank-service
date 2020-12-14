@@ -8,11 +8,10 @@ import com.ossez.edtestbank.common.dao.factories.SourcingFactory;
 import com.ossez.edtestbank.common.models.ProcessedFileEntry;
 import com.ossez.edtestbank.common.models.orm.Matching;
 import com.ossez.edtestbank.common.models.orm.MyScoFile;
-import com.ossez.edtestbank.common.models.orm.Sourcing;
+import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.utilities.CSVFileUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.tika.mime.MimeTypes;
@@ -262,15 +261,15 @@ public class MatchingService {
         HashMap sourcingMap = getSourcingMap(SourcingFactory.get(commonManufacturerIdList));
 
         commonManufacturerIdList.parallelStream().forEach(commonManufacturerId -> {
-            List<Sourcing> sourcingList = (List<Sourcing>) sourcingMap.get(commonManufacturerId);
+            List<Question> questionList = (List<Question>) sourcingMap.get(commonManufacturerId);
 
-            if (CollectionUtils.isNotEmpty(sourcingList)) {
+            if (CollectionUtils.isNotEmpty(questionList)) {
                 List<String> canSourceDirectValueList = Lists.newArrayList();
                 List<String> distributionSourcingValueList = Lists.newArrayList();
 
-                sourcingList.forEach(sourcing -> {
-                    canSourceDirectValueList.add(sourcing.getCanSourceDirect());
-                    distributionSourcingValueList.add(sourcing.getDistributionSourcing());
+                questionList.forEach(question -> {
+//                    canSourceDirectValueList.add(question.getCanSourceDirect());
+//                    distributionSourcingValueList.add(question.getDistributionSourcing());
                 });
 
                 valueMap.put(commonManufacturerId, getMaxValue(canSourceDirectValueList) + StringUtils.SPACE + getMaxValue(distributionSourcingValueList));
@@ -284,19 +283,19 @@ public class MatchingService {
     /**
      * Get sourcing map, the key of this map is commonManufacturerId
      *
-     * @param sourcingList
+     * @param questionList
      * @return
      */
-    private static HashMap<Long, List> getSourcingMap(List<Sourcing> sourcingList) {
+    private static HashMap<Long, List> getSourcingMap(List<Question> questionList) {
         HashMap<Long, List> sourcingMap = new HashMap<Long, List>();
 
-        sourcingList.parallelStream().forEach(sourcing -> {
-            Long commonManufacturerId = sourcing.getCommonManufacturerId();
-            if (sourcingMap.containsKey(commonManufacturerId)) {
-                sourcingMap.get(commonManufacturerId).add(sourcing);
-            } else {
-                sourcingMap.put(commonManufacturerId, Arrays.asList(new Sourcing[]{sourcing}));
-            }
+        questionList.parallelStream().forEach(question -> {
+//            Long commonManufacturerId = question.getCommonManufacturerId();
+//            if (sourcingMap.containsKey(commonManufacturerId)) {
+//                sourcingMap.get(commonManufacturerId).add(question);
+//            } else {
+//                sourcingMap.put(commonManufacturerId, Arrays.asList(new Question[]{question}));
+//            }
         });
         return sourcingMap;
     }

@@ -7,7 +7,7 @@ import com.opencsv.exceptions.CsvException;
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.models.CacheTestBankImport;
-import com.ossez.edtestbank.common.models.orm.QTitle;
+import com.ossez.edtestbank.common.models.orm.QuestionTitle;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.AfterAll;
@@ -192,8 +192,8 @@ public class ImportTest {
      */
     @Test
     public void testGetQTitle()  {
-        QTitle qTitle = QuestionFactory.getQTitleById(1L);
-        logger.debug("Question Title Content - {}", qTitle.getQuestionTitle());
+        QuestionTitle questionTitle = QuestionFactory.getQTitleById(1L);
+        logger.debug("Question Title Content - {}", questionTitle.getQuestionTitle());
     }
 
 

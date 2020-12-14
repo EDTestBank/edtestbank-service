@@ -1,9 +1,9 @@
 package com.ossez.edtestbank.tests;
 
-import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
+import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.QTitle;
+import com.ossez.edtestbank.common.models.orm.QuestionTitle;
 import com.ossez.edtestbank.common.service.QuestionService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -36,17 +36,17 @@ public class QuestionTest {
      */
     @Test
     public void testGetQuestionIndex()  {
-        QuestionIndex questionIndex = QuestionService.getQuestionIndex(1L);
-        logger.debug("Questions Content - {}", questionIndex.getqTitleList().size());
+        Question question = QuestionService.getQuestion(1L);
+        logger.debug("Questions Content - {}", question.getqTitleList().size());
 //        logger.debug("Questions Content - {}", questionIndex.getqTitleList().get(0).getqDescription().getDescriptionCtx());
 
-        for (QTitle qTitle: questionIndex.getqTitleList()) {
-            logger.debug("Questions Title Ctx - {}", qTitle.getQuestionTitle());
+        for (QuestionTitle questionTitle : question.getqTitleList()) {
+            logger.debug("Questions Title Ctx - {}", questionTitle.getQuestionTitle());
         }
 
 
         // make sure the customer was found
-        assertNotNull(questionIndex);
+        assertNotNull(question);
     }
 
     /**
@@ -54,8 +54,8 @@ public class QuestionTest {
      */
     @Test
     public void testGetQTitle() {
-        QTitle qTitle = QuestionFactory.getQTitleById(1L);
-        logger.debug("Question Title Content - {}", qTitle.getQuestionTitle());
+        QuestionTitle questionTitle = QuestionFactory.getQTitleById(1L);
+        logger.debug("Question Title Content - {}", questionTitle.getQuestionTitle());
     }
 
 

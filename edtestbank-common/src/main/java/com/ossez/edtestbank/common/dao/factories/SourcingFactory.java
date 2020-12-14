@@ -3,7 +3,7 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.Sourcing;
+import com.ossez.edtestbank.common.models.orm.Question;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
@@ -24,13 +24,13 @@ public class SourcingFactory extends Factory {
      * @param CommonManufacturerIdList
      * @return
      */
-    public static List<Sourcing> get(List<Long> CommonManufacturerIdList) {
+    public static List<Question> get(List<Long> CommonManufacturerIdList) {
         logger.debug("Search Database View of Matching to make sure the view has data in");
 
-        List<Sourcing> results = Lists.newArrayList();
+        List<Question> results = Lists.newArrayList();
         try {
             Factory.beginTransaction();
-            Criteria criteria = Factory.createCriteria(Sourcing.class);
+            Criteria criteria = Factory.createCriteria(Question.class);
             criteria.add(Restrictions.in("commonManufacturerId", CommonManufacturerIdList));
 
             results = criteria.list();
@@ -47,14 +47,14 @@ public class SourcingFactory extends Factory {
     /**
      * Save List for Object
      *
-     * @param sourcingList
+     * @param questionList
      * @return
      */
-    public static int save(List<Sourcing> sourcingList) {
+    public static int save(List<Question> questionList) {
         logger.debug("Save Sourcing Object List");
         try {
-            sourcingList.forEach(sourcing -> {
-                save(sourcing);
+            questionList.forEach(question -> {
+                save(question);
             });
         } catch (Exception e) {
             e.printStackTrace();

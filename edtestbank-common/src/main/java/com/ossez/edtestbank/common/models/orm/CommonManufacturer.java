@@ -48,7 +48,7 @@ public class CommonManufacturer extends DataObject implements Serializable {
     @Fetch(FetchMode.SUBSELECT)
     @JoinColumn(name = "common_manufacturer_id")
     @JsonManagedReference
-    private Set<Sourcing> sourcingSet;
+    private Set<Question> questionSet;
 
     /**
      * Constructor
@@ -71,8 +71,8 @@ public class CommonManufacturer extends DataObject implements Serializable {
         return aliasSet;
     }
 
-    public Set<Sourcing> getSourcingSet() {
-        return sourcingSet;
+    public Set<Question> getSourcingSet() {
+        return questionSet;
     }
 
     public Set<Xref> getXrefSet() {

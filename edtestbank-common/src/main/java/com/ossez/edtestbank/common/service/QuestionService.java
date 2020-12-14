@@ -25,6 +25,10 @@ public class QuestionService {
         return QuestionFactory.getQuestionIndex(id);
     }
 
+    public static Question getQuestion(Long id) {
+        return QuestionFactory.getQuestion(id);
+    }
+
     public static QuestionIndex getQuestionIndex(String uuid) {
         return QuestionFactory.getQuestionIndex(uuid);
     }
