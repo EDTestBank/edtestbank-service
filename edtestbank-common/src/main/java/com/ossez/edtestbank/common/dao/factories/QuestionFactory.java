@@ -63,6 +63,29 @@ public class QuestionFactory {
         return (Question) obj;
     }
 
+    public static Question getQuestion(String uuid) {
+        Object result = ObjectUtils.NULL;
+
+        try {
+            Factory.beginTransaction();
+            Criteria criteria = Factory.createCriteria(Question.class);
+            criteria.add(Restrictions.eq("uuid", uuid)).addOrder(Order.asc("id"));
+
+            //ORDER
+            criteria.addOrder(Order.asc("id"));
+            criteria.setMaxResults(1);
+
+            result = criteria.uniqueResult();
+
+            Factory.commitTransaction();
+        } catch (Exception e) {
+            logger.error("Get QuestionIndex data error.", e);
+            Factory.rollbackTransaction();
+        }
+
+        return (Question) result;
+    }
+
 
     /**
      * Get Question Index by UUID

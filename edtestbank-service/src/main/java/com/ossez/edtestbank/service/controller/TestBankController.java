@@ -2,6 +2,7 @@ package com.ossez.edtestbank.service.controller;
 
 
 import com.ossez.edtestbank.common.SCOConstants;
+import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.models.orm.QuestionIndex;
 import com.ossez.edtestbank.common.service.QuestionService;
 import org.apache.commons.lang3.StringUtils;
@@ -33,9 +34,9 @@ public class TestBankController {
     public ResponseEntity<?> searchUser(@RequestParam String uuid) {
         logger.debug("Get Question by UUID - [{}]", uuid);
 
-        QuestionIndex questionIndex = QuestionService.getQuestionIndex(StringUtils.trimToNull(uuid));
-        
-        return new ResponseEntity<QuestionIndex>(questionIndex, HttpStatus.OK);
+        Question question = QuestionService.getQuestion(StringUtils.trimToNull(uuid));
+
+        return new ResponseEntity<Question>(question, HttpStatus.OK);
     }
 
 }
