@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * question Endpoint
  *
@@ -24,6 +26,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/testbank")
 public class TestBankController {
     private static final Logger logger = LoggerFactory.getLogger(TestBankController.class);
+
+    /**
+     * Search Question Index
+     *
+     * @return
+     */
+    @GetMapping("/question-list")
+    public ResponseEntity<?> searchQuestionIndexList() {
+        return new ResponseEntity<List<QuestionIndex>>(QuestionService.searchQuestionIndex(), HttpStatus.OK);
+    }
 
     /**
      * Search Question Index

@@ -8,6 +8,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -35,6 +36,10 @@ public class QuestionService {
 
     public static QuestionIndex getQuestionIndex(String uuid) {
         return QuestionFactory.getQuestionIndex(uuid);
+    }
+
+    public static List<QuestionIndex> searchQuestionIndex() {
+        return QuestionFactory.searchQuestionIndex();
     }
 
 }
