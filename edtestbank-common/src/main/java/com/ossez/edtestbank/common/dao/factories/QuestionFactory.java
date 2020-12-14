@@ -1,5 +1,6 @@
 package com.ossez.edtestbank.common.dao.factories;
 
+import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.models.orm.QuestionIndex;
@@ -10,6 +11,8 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * Question Factory
@@ -113,6 +116,29 @@ public class QuestionFactory {
             Factory.rollbackTransaction();
         }
         return (QuestionIndex) result;
+    }
+
+
+    public static List<QuestionIndex> searchQuestionIndex() {
+        List<QuestionIndex> results = Lists.newArrayList();
+
+        try {
+            Factory.beginTransaction();
+            Criteria criteria = Factory.createCriteria(QuestionIndex.class);
+//            criteria.add(Restrictions.eq("uuid", uuid)).addOrder(Order.asc("id"));
+
+            //ORDER
+            criteria.addOrder(Order.desc("dateModified"));
+            criteria.setMaxResults(50);
+
+            results = criteria.list();
+
+            Factory.commitTransaction();
+        } catch (Exception e) {
+            logger.error("Get QuestionIndex data error.", e);
+            Factory.rollbackTransaction();
+        }
+        return results;
     }
 
     /**

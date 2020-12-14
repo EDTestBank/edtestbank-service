@@ -73,9 +73,6 @@ public abstract class DataObject {
         this.dateCreated = dateCreated;
     }
 
-
-
-
     /**
      * @return
      */

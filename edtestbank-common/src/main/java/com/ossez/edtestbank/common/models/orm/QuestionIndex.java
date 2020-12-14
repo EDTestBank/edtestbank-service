@@ -15,12 +15,19 @@ import java.util.List;
 @Table(catalog = "edtestbank", name = "QUESTION_INDEX")
 public class QuestionIndex extends DataObject implements Serializable {
 
-    private static final long serialVersionUID = -4012870143841922864L;
+    private static final long serialVersionUID = 4245766639954964199L;
+
+    @Column(name = "description")
+    private String description;
 
     public QuestionIndex() {
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
