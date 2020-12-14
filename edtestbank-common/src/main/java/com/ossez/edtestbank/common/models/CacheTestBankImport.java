@@ -32,8 +32,8 @@ public class CacheTestBankImport extends DataObject implements Serializable {
 
 
     public CacheTestBankImport() {
-        this.setDateC(new Date());
-        this.setDateM(this.getDateC());
+        this.setDateCreated(new Date());
+        this.setDateModified(this.getDateCreated());
         this.setUuid(UUID.randomUUID().toString());
     }
 

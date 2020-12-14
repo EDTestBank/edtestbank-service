@@ -18,11 +18,11 @@ CREATE DATABASE IF NOT EXISTS `edtestbank` /*!40100 DEFAULT CHARACTER SET utf8mb
 USE `edtestbank`;
 
 -- Dumping structure for table edtestbank.QIndex
-CREATE TABLE IF NOT EXISTS `QIndex` (
+CREATE TABLE IF NOT EXISTS `QUESTION` (
                                         `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                         `questions` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-                                        `dateC` datetime NOT NULL,
-                                        `dateM` datetime NOT NULL,
+                                        `date_created` datetime NOT NULL,
+                                        `date_created` datetime NOT NULL,
                                         `uuid` varchar(64) NOT NULL,
                                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4;

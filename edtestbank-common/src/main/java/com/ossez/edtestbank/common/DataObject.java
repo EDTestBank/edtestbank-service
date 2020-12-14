@@ -31,9 +31,14 @@ public abstract class DataObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id = 0;
+
+    @Column(name = "date_created")
+    private Date dateCreated;
+
+    @Column(name = "date_modified")
+    private Date dateModified;
+
     private String uuid;
-    private Date dateC;
-    private Date dateM;
 
     @JsonProperty
     @DocumentId
@@ -60,31 +65,16 @@ public abstract class DataObject {
     @JsonProperty
     @DateBridge(resolution = Resolution.SECOND)
     @Column(nullable = false, updatable = false)
-    public Date getCreateDate() {
-        return this.dateC;
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
-    /**
-     * @param createDate
-     */
-    public void setCreateDate(Date createDate) {
-        this.dateC = createDate;
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
 
-    /**
-     * @return
-     */
-    @JsonProperty
-    @DateBridge(resolution = Resolution.SECOND)
-    @Column(nullable = false)
-    public Date getDateC() {
-        return dateC;
-    }
 
-    public void setDateC(Date dateC) {
-        this.dateC = dateC;
-    }
 
     /**
      * @return
@@ -92,12 +82,12 @@ public abstract class DataObject {
     @JsonProperty
     @DateBridge(resolution = Resolution.SECOND)
     @Column(nullable = false)
-    public Date getDateM() {
-        return dateM;
+    public Date getDateModified() {
+        return dateModified;
     }
 
-    public void setDateM(Date dateM) {
-        this.dateM = dateM;
+    public void setDateModified(Date dateModified) {
+        this.dateModified = dateModified;
     }
 
 

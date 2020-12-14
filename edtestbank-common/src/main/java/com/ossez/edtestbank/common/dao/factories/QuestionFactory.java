@@ -1,9 +1,9 @@
 package com.ossez.edtestbank.common.dao.factories;
 
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.MyScoFile;
+import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.QTitle;
+import com.ossez.edtestbank.common.models.orm.QuestionTitle;
 import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
@@ -42,6 +42,29 @@ public class QuestionFactory {
     }
 
     /**
+     * Search QuestionIndex by id
+     *
+     * @param id
+     * @return
+     */
+    public static Question getQuestion(Long id) {
+        Object obj = ObjectUtils.NULL;
+
+        try {
+            Factory.beginTransaction();
+            obj = Factory.getSession().get(Question.class, id);
+
+            Factory.commitTransaction();
+        } catch (Exception e) {
+            logger.error("Get QuestionIndex data error.", e);
+            Factory.rollbackTransaction();
+        }
+
+        return (Question) obj;
+    }
+
+
+    /**
      * Get Question Index by UUID
      *
      * @param uuid
@@ -75,11 +98,11 @@ public class QuestionFactory {
      * @param id
      * @return
      */
-    public static QTitle getQTitleById(Long id) {
-        Object obj = Factory.getSession().get(QTitle.class, id);
+    public static QuestionTitle getQTitleById(Long id) {
+        Object obj = Factory.getSession().get(QuestionTitle.class, id);
 
         if (ObjectUtils.allNotNull(obj))
-            return (QTitle) obj;
+            return (QuestionTitle) obj;
         else
             return null;
     }
