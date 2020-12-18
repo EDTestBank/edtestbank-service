@@ -72,7 +72,6 @@ public class MyScoFile extends DataObject implements Serializable {
         this.setAzureInputFileUUID(UUID.randomUUID().toString());
         this.setDateCreated(new Date());
         this.setDateModified(new Date());
-        this.setUuid(UUID.randomUUID().toString());
     }
 
     public static long getSerialVersionUID() {

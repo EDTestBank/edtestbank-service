@@ -27,20 +27,20 @@ public class MatchingFactory extends Factory {
      * @param id
      * @return
      */
-    public static Matching getMatching(Long id) {
+    public static TestBankSubject getMatching(Long id) {
         logger.debug("Search Database View of Matching to make sure the view has data in");
         Object obj = ObjectUtils.NULL;
 
         try {
             Factory.beginTransaction();
-            obj = Factory.getSession().get(Matching.class, id);
+            obj = Factory.getSession().get(TestBankSubject.class, id);
         } catch (Exception e) {
             logger.error("Get Matching data error.", e);
         } finally {
             Factory.commitTransaction();
         }
 
-        return (Matching) obj;
+        return (TestBankSubject) obj;
     }
 
     /**
@@ -62,7 +62,7 @@ public class MatchingFactory extends Factory {
             vendorList.forEach(vendorName -> {
                 Integer rowCount = NumberUtils.INTEGER_ZERO;
 
-                Criteria criteria = Factory.createCriteria(Matching.class);
+                Criteria criteria = Factory.createCriteria(TestBankSubject.class);
                 criteria.add(Restrictions.eq("matchName", vendorName));
                 criteria.setProjection(Projections.rowCount());
                 criteria.setMaxResults(1);
@@ -91,18 +91,18 @@ public class MatchingFactory extends Factory {
      * @param vendorName
      * @return
      */
-    public static List<Matching> getMatchingListByVendorName(String vendorName) {
+    public static List<TestBankSubject> getMatchingListByVendorName(String vendorName) {
 
         return getMatchingListByVendorName(vendorName, false);
     }
 
-    public static List<Matching> getMatchingListByVendorName(String vendorName, boolean allowPartialMatch) {
+    public static List<TestBankSubject> getMatchingListByVendorName(String vendorName, boolean allowPartialMatch) {
 
-        List<Matching> results = Lists.newArrayList();
+        List<TestBankSubject> results = Lists.newArrayList();
 
         try {
             Factory.beginTransaction();
-            Criteria criteria = Factory.createCriteria(Matching.class);
+            Criteria criteria = Factory.createCriteria(TestBankSubject.class);
             if (allowPartialMatch) {
                 criteria.add(Restrictions.ilike("matchName", vendorName, MatchMode.ANYWHERE));
             } else {

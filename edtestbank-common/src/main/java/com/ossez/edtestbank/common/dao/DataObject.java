@@ -37,8 +37,6 @@ public abstract class DataObject {
     @Column(name = "date_modified")
     private Date dateModified;
 
-    private String uuid;
-
     @JsonProperty
     @DocumentId
     public long getId() {
@@ -47,15 +45,6 @@ public abstract class DataObject {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     /**

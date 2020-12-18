@@ -32,6 +32,9 @@
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionIndex"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionTitle"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionDescription"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.Subject"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.TestBank"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.TestBankSubject"/>
 		<mapping class="com.ossez.edtestbank.common.models.CacheTestBankImport"/>
 		<event type="delete">
 			<listener class="com.ossez.edtestbank.common.dao.DeleteEventListener" />
