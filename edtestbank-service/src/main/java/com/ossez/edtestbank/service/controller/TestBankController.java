@@ -35,8 +35,8 @@ public class TestBankController {
      *
      * @return
      */
-    @GetMapping("/list")
-    public ResponseEntity<?> searchTestBank() {
+    @GetMapping("/data")
+    public ResponseEntity<?> searchTestBank(@RequestParam String id) {
         return new ResponseEntity<List<TestBank>>(TestBankService.searchTestBank(), HttpStatus.OK);
     }
 
