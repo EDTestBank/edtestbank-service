@@ -1,7 +1,7 @@
 package com.ossez.edtestbank.common.models.orm;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.ossez.edtestbank.common.DataObject;
+import com.ossez.edtestbank.common.dao.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

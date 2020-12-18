@@ -13,7 +13,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * ORM For Table: COMMON_MANUFACTURER
@@ -42,7 +41,7 @@ public class CommonManufacturer extends DataObject implements Serializable {
     @Fetch(FetchMode.SUBSELECT)
     @JoinColumn(name = "common_manufacturer_id")
     @JsonManagedReference
-    private Set<Xref> xrefSet;
+    private Set<Subject> subjectSet;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
@@ -56,7 +55,6 @@ public class CommonManufacturer extends DataObject implements Serializable {
     public CommonManufacturer() {
         this.setDateCreated(new Date());
         this.setDateModified(new Date());
-        this.setUuid(UUID.randomUUID().toString());
     }
 
     public String getManufacturerName() {
@@ -75,7 +73,7 @@ public class CommonManufacturer extends DataObject implements Serializable {
         return questionSet;
     }
 
-    public Set<Xref> getXrefSet() {
-        return xrefSet;
+    public Set<Subject> getXrefSet() {
+        return subjectSet;
     }
 }

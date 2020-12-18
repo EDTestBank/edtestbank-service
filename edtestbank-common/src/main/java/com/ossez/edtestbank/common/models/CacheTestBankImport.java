@@ -1,6 +1,6 @@
 package com.ossez.edtestbank.common.models;
 
-import com.ossez.edtestbank.common.DataObject;
+import com.ossez.edtestbank.common.dao.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -34,7 +34,6 @@ public class CacheTestBankImport extends DataObject implements Serializable {
     public CacheTestBankImport() {
         this.setDateCreated(new Date());
         this.setDateModified(this.getDateCreated());
-        this.setUuid(UUID.randomUUID().toString());
     }
 
     public static long getSerialVersionUID() {

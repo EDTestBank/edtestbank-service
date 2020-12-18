@@ -33,7 +33,6 @@ public class Alias extends DataObject implements Serializable {
     public Alias() {
         this.setDateCreated(new Date());
         this.setDateModified(new Date());
-        this.setUuid(UUID.randomUUID().toString());
     }
 
     public String getManufacturerAlias() {

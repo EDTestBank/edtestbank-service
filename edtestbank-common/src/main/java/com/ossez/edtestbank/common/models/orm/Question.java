@@ -34,6 +34,8 @@ public class Question extends DataObject implements Serializable {
     @JsonManagedReference
     private List<QuestionTitle> questionTitleList = new ArrayList<>();
 
+    private String uuid;
+
     /**
      * Constructor
      */
@@ -57,5 +59,13 @@ public class Question extends DataObject implements Serializable {
 
     public void setqTitleList(List<QuestionTitle> questionTitleList) {
         this.questionTitleList = questionTitleList;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

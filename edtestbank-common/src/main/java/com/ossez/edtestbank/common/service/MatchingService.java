@@ -6,7 +6,7 @@ import com.ossez.edtestbank.common.dao.factories.MatchingFactory;
 import com.ossez.edtestbank.common.dao.factories.MyScoFileFactory;
 import com.ossez.edtestbank.common.dao.factories.SourcingFactory;
 import com.ossez.edtestbank.common.models.ProcessedFileEntry;
-import com.ossez.edtestbank.common.models.orm.Matching;
+import com.ossez.edtestbank.common.models.orm.TestBankSubject;
 import com.ossez.edtestbank.common.models.orm.MyScoFile;
 import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.utilities.CSVFileUtils;
@@ -38,7 +38,7 @@ public class MatchingService {
      * @param isPartialMatch
      * @return
      */
-    public static List<Matching> getMatchingByVendorName(String searchQ, Boolean isPartialMatch) {
+    public static List<TestBankSubject> getMatchingByVendorName(String searchQ, Boolean isPartialMatch) {
         return MatchingFactory.getMatchingListByVendorName(searchQ, isPartialMatch);
     }
 
@@ -168,13 +168,13 @@ public class MatchingService {
             String vendorName = vendorList.get(i);
 
             // SEARCH DB
-            List<Matching> dbSearchedList = MatchingFactory.getMatchingListByVendorName(vendorName);
+            List<TestBankSubject> dbSearchedList = MatchingFactory.getMatchingListByVendorName(vendorName);
 
             if (CollectionUtils.isNotEmpty(dbSearchedList) && CollectionUtils.size(dbSearchedList) > 0) {
 
                 // For return of database search list set value to OBJ
-                for (Matching matching : dbSearchedList) {
-                    commonManufacturerIdSet.add(NumberUtils.toLong(matching.getCommonManufacturerId()));
+                for (TestBankSubject testBankSubject : dbSearchedList) {
+//                    commonManufacturerIdSet.add(NumberUtils.toLong(testBankSubject.getCommonManufacturerId()));
 
                     ProcessedFileEntry processedFileEntry = new ProcessedFileEntry();
                     processedFileEntry.setVendorName(vendorName);
@@ -187,9 +187,9 @@ public class MatchingService {
                     } else {
                         processedFileEntry.setExactMatch(SCOConstants.VALUE_YES);
                     }
-                    processedFileEntry.setCommonManufacturerName(matching.getCommonManufacturerName());
-                    processedFileEntry.setCommonManufacturerId(NumberUtils.toLong(matching.getCommonManufacturerId()));
-                    processedFileEntry.setMatchType(matching.getMatchType());
+//                    processedFileEntry.setCommonManufacturerName(testBankSubject.getCommonManufacturerName());
+//                    processedFileEntry.setCommonManufacturerId(NumberUtils.toLong(testBankSubject.getCommonManufacturerId()));
+//                    processedFileEntry.setMatchType(testBankSubject.getMatchType());
 
                     // ADD TO LIST
                     matchingColsList.add(processedFileEntry);
