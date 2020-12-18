@@ -29,7 +29,6 @@ public class TestBank extends DataObject implements Serializable {
     private String testbankName;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @Fetch(FetchMode.SUBSELECT)
     @JoinColumn(name = "testbank_id")
     @OrderBy("orderSeq ASC")
     @JsonManagedReference
