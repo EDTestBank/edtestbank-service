@@ -1,8 +1,9 @@
-SELECT t1.id                                                             AS id,
-       t1.uuid                                                           AS uuid,
-       CONCAT(t1.description, SUBSTRING(t2.questionTitle FROM 1 FOR 30)) AS description,
-       t1.date_created                                                   AS date_created,
-       t1.date_modified                                                  AS date_modified
+SELECT t1.id                                            AS id,
+       t1.uuid                                          AS uuid,
+       CONCAT(t1.description, SUBSTRING(t2.questionTitle
+                                        FROM 1 FOR 30)) AS description,
+       t1.date_created                                  AS date_created,
+       t1.date_modified                                 AS date_modified
 FROM (
          SELECT t.id                     AS id,
                 t.uuid                   AS UUID,
