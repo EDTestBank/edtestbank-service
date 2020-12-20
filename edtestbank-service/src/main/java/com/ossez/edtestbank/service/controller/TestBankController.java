@@ -8,6 +8,7 @@ import com.ossez.edtestbank.common.models.orm.TestBank;
 import com.ossez.edtestbank.common.service.QuestionService;
 import com.ossez.edtestbank.common.service.TestBankService;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * question Endpoint
+ * TestBank Endpoint
  *
  * @author YuCheng Hu
  */
@@ -29,15 +30,21 @@ import java.util.List;
 public class TestBankController {
     private static final Logger logger = LoggerFactory.getLogger(TestBankController.class);
 
-
     /**
-     * Search Question Index
+     * Search TestBank
      *
+     * @param id
      * @return
      */
-    @GetMapping("/data")
-    public ResponseEntity<?> searchTestBank(@RequestParam String id) {
-        return new ResponseEntity<List<TestBank>>(TestBankService.searchTestBank(), HttpStatus.OK);
+    @GetMapping("/search")
+    public ResponseEntity<?> searchTestBank(@RequestParam(required = false) String id) {
+        logger.debug("Search TestBank by id or return list");
+        String testBankId = StringUtils.trimToNull(id);
+
+        if (StringUtils.isNotBlank(testBankId) && NumberUtils.isDigits(testBankId))
+            return new ResponseEntity<TestBank>(TestBankService.getTestBank(NumberUtils.toLong(testBankId)), HttpStatus.OK);
+        else
+            return new ResponseEntity<List<TestBank>>(TestBankService.searchTestBank(), HttpStatus.OK);
     }
 
     /**
