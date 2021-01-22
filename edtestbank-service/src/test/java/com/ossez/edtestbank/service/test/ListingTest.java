@@ -5,9 +5,7 @@ import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.dao.factories.ListingFactory;
 import com.ossez.edtestbank.common.dao.factories.PostFactory;
-import com.ossez.edtestbank.common.dao.repositories.REListingRepository;
 import com.ossez.edtestbank.common.models.orm.BBSOssezForumAttach;
 import com.ossez.edtestbank.common.models.orm.BBSOssezForumPost;
 import com.ossez.edtestbank.common.models.orm.REListing;
@@ -28,17 +26,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,18 +43,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Test Logger and function
+ * Real Estate Listing Data Testing
  *
  * @author YuCheng Hu
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringJUnitConfig
-
+@ActiveProfiles("test")
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+//@SpringBootTest
 public class ListingTest {
     private static Logger logger = LoggerFactory.getLogger(ListingTest.class);
 
-
-    ListingService listingService = new ListingService();
+    @Autowired
+    ListingService listingService;
 
     @BeforeAll
     protected void setUp() throws Exception {
@@ -75,7 +71,7 @@ public class ListingTest {
     @Test
     public void testGetREListing() throws IOException, InterruptedException {
 
-        logger.debug("{}", listingService.getREListingById().getDateCreated());
+        logger.debug("{}", listingService.getREListingById());
 
     }
 
