@@ -2,6 +2,8 @@ package com.ossez.edtestbank.service.controller;
 
 
 import com.ossez.edtestbank.common.models.orm.QuestionIndex;
+import com.ossez.edtestbank.common.models.orm.REListing;
+import com.ossez.edtestbank.common.service.ListingService;
 import com.ossez.edtestbank.common.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,26 +17,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @author YuCheng Hu
  */
 @RestController
-@RequestMapping(value = "/search")
-public class SearchController {
+@RequestMapping(value = "/re")
+public class RealEstateController {
 
+    ListingService listingService = new ListingService();
 
     /**
      * Search Question Index
      *
      * @return
      */
-    @GetMapping("/question-index")
+    @GetMapping("/sold")
     public ResponseEntity<?> searchUser() {
+        REListing reListing=  listingService.getREListingById();
 
-        QuestionIndex questionIndex = QuestionService.getQuestionIndex(1L);
-//        SearchResponse searchResponse = new SearchResponse();
-//        searchResponse.setUuid(UUID.randomUUID().toString());
-//        questionIndex = new QuestionIndex();
-//        questionIndex.setQuestions("dddddd");
+        return new ResponseEntity<REListing>(reListing, HttpStatus.OK);
+    }
 
+    @GetMapping("/tax")
+    public ResponseEntity<?> searchTax() {
+        REListing reListing=  listingService.getREListingById();
 
-        return new ResponseEntity<QuestionIndex>(questionIndex, HttpStatus.OK);
+        return new ResponseEntity<REListing>(reListing, HttpStatus.OK);
     }
 
 }
