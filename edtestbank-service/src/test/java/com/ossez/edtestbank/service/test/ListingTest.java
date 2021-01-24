@@ -48,9 +48,6 @@ import java.util.regex.Pattern;
  * @author YuCheng Hu
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ActiveProfiles("test")
-@DataJpaTest
-@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 //@SpringBootTest
 public class ListingTest {
     private static Logger logger = LoggerFactory.getLogger(ListingTest.class);
