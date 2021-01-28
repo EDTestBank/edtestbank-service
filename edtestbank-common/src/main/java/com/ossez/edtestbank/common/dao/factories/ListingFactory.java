@@ -3,6 +3,7 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
+import com.ossez.edtestbank.common.models.orm.REListing;
 import com.ossez.edtestbank.common.models.orm.TestBank;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
@@ -16,22 +17,22 @@ import java.util.List;
  *
  * @author YuCheng Hu
  */
-public class TestBankFactory extends Factory {
-    private final static Logger logger = LoggerFactory.getLogger(TestBankFactory.class);
+public class ListingFactory extends Factory {
+    private final static Logger logger = LoggerFactory.getLogger(ListingFactory.class);
 
-    public static TestBank getTestBank(Long id) {
+    public static REListing getREListing(Long id) {
         Object obj = null;
 
         try {
             Factory.beginTransaction();
-            obj = Factory.getSession().get(TestBank.class, id);
+            obj = Factory.getSession().get(REListing.class, id);
 
             Factory.commitTransaction();
         } catch (Exception e) {
             logger.error("Get Matching data error.", e);
             Factory.rollbackTransaction();
         }
-        return (TestBank) obj;
+        return (REListing) obj;
 
 
     }

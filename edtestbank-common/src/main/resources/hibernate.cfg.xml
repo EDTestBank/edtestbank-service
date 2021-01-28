@@ -28,10 +28,14 @@
 		<property name="hibernate.search.default.directory_provider">filesystem</property>
 		<property name="hibernate.search.default.indexBase">/var/lucene/indexes/5</property>
 
+
+		<mapping class="com.ossez.edtestbank.common.models.orm.BBSOssezForumAttach"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.BBSOssezForumPost"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.Question"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionIndex"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionTitle"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionDescription"/>
+		<mapping class="com.ossez.edtestbank.common.models.orm.REListing"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.Subject"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.TestBank"/>
 		<mapping class="com.ossez.edtestbank.common.models.orm.TestBankSubject"/>

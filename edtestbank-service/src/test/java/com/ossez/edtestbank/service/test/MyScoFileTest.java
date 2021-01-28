@@ -2,9 +2,8 @@ package com.ossez.edtestbank.service.test;
 
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.IndexFactory;
-import com.ossez.edtestbank.common.dao.factories.MyScoFileFactory;
-import com.ossez.edtestbank.common.models.orm.MyScoFile;
-import org.joda.time.DateTime;
+import com.ossez.edtestbank.common.dao.factories.PostFactory;
+import com.ossez.edtestbank.common.models.orm.BBSOssezForumPost;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -13,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -61,10 +59,10 @@ public class MyScoFileTest {
 
         Factory.beginTransaction();
         IndexFactory.createIndex();
-        MyScoFile myScoFile = MyScoFileFactory.getMyScoFile(1L);
-        Factory.commitTransaction();
-
-        assertNotNull(myScoFile.getInputFileName());
+//        BBSOssezForumPost bbsossezForumPost = PostFactory.getMyScoFile(1L);
+//        Factory.commitTransaction();
+//
+//        assertNotNull(bbsossezForumPost.getInputFileName());
     }
 
 }
