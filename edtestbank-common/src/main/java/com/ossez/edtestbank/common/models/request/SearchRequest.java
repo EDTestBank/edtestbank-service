@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author YuCheng Hu
  */
 public class SearchRequest implements Serializable {
-    private static final long serialVersionUID = 6474765081240948885L;
+    private static final long serialVersionUID = 1876851629994025892L;
 
 
     private String searchStr;

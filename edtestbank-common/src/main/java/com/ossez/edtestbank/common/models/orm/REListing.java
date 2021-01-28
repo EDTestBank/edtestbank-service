@@ -22,7 +22,7 @@ import java.util.UUID;
  */
 @Entity
 @Indexed
-@Table(catalog = "reoctx", name = "REListing")
+@Table(catalog = "reoctx", name = "re_listing")
 public class REListing extends DataObject implements Serializable {
     private static final long serialVersionUID = -5838121102958692727L;
 
