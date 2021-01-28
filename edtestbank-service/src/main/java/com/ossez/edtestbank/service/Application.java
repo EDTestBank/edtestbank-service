@@ -21,11 +21,10 @@ import javax.servlet.ServletException;
  */
 @EnableScheduling
 @EnableCaching
-@EnableResourceServer
 @SpringBootApplication
 @ComponentScan("com.ossez.edtestbank")
-@EntityScan
-@EnableJpaRepositories
+@EntityScan(basePackages = {"com.ossez.edtestbank"})
+@EnableJpaRepositories(basePackages = {"com.ossez.edtestbank"})
 public class Application extends SpringBootServletInitializer {
 
     @Override
