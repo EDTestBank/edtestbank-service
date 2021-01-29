@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.service;
+package com.ossez.edtestbank.common.service.impl;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.SCOConstants;
@@ -12,6 +12,7 @@ import com.ossez.edtestbank.common.models.orm.BBSOssezForumPost;
 import com.ossez.edtestbank.common.models.orm.Question;
 import com.ossez.edtestbank.common.models.orm.REListing;
 import com.ossez.edtestbank.common.models.orm.TestBankSubject;
+import com.ossez.edtestbank.common.service.intf.ListingService;
 import com.ossez.edtestbank.common.utilities.CSVFileUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.CollectionUtils;
@@ -33,7 +34,7 @@ import java.util.*;
  * @author YuCheng Hu
  */
 @Service
-public class ListingServiceImpl implements ListingService{
+public class ListingServiceImpl implements ListingService {
     private static final Logger logger = LoggerFactory.getLogger(ListingServiceImpl.class);
 
     @Autowired
