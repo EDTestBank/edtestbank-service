@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models.orm;
+package com.ossez.edtestbank.common.model.entity;
 
 import com.ossez.edtestbank.common.dao.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;

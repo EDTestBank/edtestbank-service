@@ -1,20 +1,12 @@
-package com.ossez.edtestbank.common.models.orm;
+package com.ossez.edtestbank.common.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ossez.edtestbank.common.dao.DataObject;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * ORM For Table: MATCHING

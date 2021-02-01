@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models.orm;
+package com.ossez.edtestbank.common.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.ossez.edtestbank.common.dao.DataObject;

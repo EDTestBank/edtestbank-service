@@ -1,13 +1,10 @@
-package com.ossez.edtestbank.common.models.orm;
+package com.ossez.edtestbank.common.model.entity;
 
-import com.ossez.edtestbank.common.dao.DataObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.UUID;
 
 
 @Entity

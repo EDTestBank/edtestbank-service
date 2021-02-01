@@ -1,6 +1,5 @@
-package com.ossez.edtestbank.common.models.orm;
+package com.ossez.edtestbank.common.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ossez.edtestbank.common.dao.DataObject;
 import org.hibernate.search.annotations.Indexed;
 import org.joda.time.DateTime;
@@ -10,10 +9,7 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * ORM For Table: REListing
@@ -22,7 +18,7 @@ import java.util.UUID;
  */
 @Entity
 @Indexed
-@Table(catalog = "reoctx", name = "REListing")
+@Table(catalog = "reoctx", name = "re_listing")
 public class REListing extends DataObject implements Serializable {
     private static final long serialVersionUID = -5838121102958692727L;
 
