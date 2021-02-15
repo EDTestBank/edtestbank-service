@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models;
+package com.ossez.edtestbank.common.model;
 
 /**
  * ParsedFile Object need to output for OBJ

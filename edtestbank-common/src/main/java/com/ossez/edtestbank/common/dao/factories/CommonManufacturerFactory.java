@@ -2,7 +2,7 @@ package com.ossez.edtestbank.common.dao.factories;
 
 
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.CommonManufacturer;
+import com.ossez.edtestbank.common.model.entity.CommonManufacturer;
 import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;

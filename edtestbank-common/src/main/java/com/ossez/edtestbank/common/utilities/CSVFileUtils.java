@@ -2,7 +2,7 @@ package com.ossez.edtestbank.common.utilities;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.factories.MatchingFactory;
-import com.ossez.edtestbank.common.models.ProcessedFileEntry;
+import com.ossez.edtestbank.common.model.ProcessedFileEntry;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;

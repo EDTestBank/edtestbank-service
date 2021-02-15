@@ -1,4 +1,4 @@
-package com.ossez.edtestbank.common.models.request;
+package com.ossez.edtestbank.common.model.request;
 
 import java.io.Serializable;
 

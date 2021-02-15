@@ -1,14 +1,15 @@
-package com.ossez.edtestbank.common.service;
+package com.ossez.edtestbank.common.service.impl;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.SCOConstants;
 import com.ossez.edtestbank.common.dao.factories.MatchingFactory;
 import com.ossez.edtestbank.common.dao.factories.PostFactory;
 import com.ossez.edtestbank.common.dao.factories.SourcingFactory;
+import com.ossez.edtestbank.common.dao.repositories.REListingRepository;
+import com.ossez.edtestbank.common.dao.repositories.TownRepository;
 import com.ossez.edtestbank.common.model.ProcessedFileEntry;
-import com.ossez.edtestbank.common.model.entity.TestBankSubject;
-import com.ossez.edtestbank.common.model.entity.BBSOssezForumPost;
-import com.ossez.edtestbank.common.model.entity.Question;
+import com.ossez.edtestbank.common.model.entity.*;
+import com.ossez.edtestbank.common.service.intf.MetadataService;
 import com.ossez.edtestbank.common.utilities.CSVFileUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections4.CollectionUtils;
@@ -16,9 +17,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tika.mime.MimeTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -27,8 +30,31 @@ import java.util.*;
  *
  * @author YuCheng Hu
  */
-public class MatchingService {
-    private static final Logger logger = LoggerFactory.getLogger(MatchingService.class);
+@Service
+public class MetadataServiceImpl implements MetadataService {
+    private static final Logger logger = LoggerFactory.getLogger(MetadataServiceImpl.class);
+
+    @Autowired
+    REListingRepository reListingRepository;
+
+    @Autowired
+    TownRepository townRepository;
+
+
+    public REListing getREListingById() {
+//        return ListingFactory.getREListing(10L);
+        return reListingRepository.getREListingById(10L);
+    }
+
+    public void save(Town town) {
+        townRepository.save(town);
+    }
+
+    public void save(List<Town> towns) {
+        townRepository.saveAll(towns);
+    }
+
+
 
     /**
      * Search Matching by Search String
@@ -42,7 +68,6 @@ public class MatchingService {
     }
 
     /**
-     *
      * @param token
      * @param clientName
      * @param file
@@ -90,13 +115,13 @@ public class MatchingService {
         }
 
 
-
         return fileHashMap;
     }
 
 
     /**
      * Process Input File
+     *
      * @param bbsossezForumPost
      * @param inputFile
      * @return
@@ -120,7 +145,7 @@ public class MatchingService {
                 vendorList = CSVFileUtils.getExcelInputFileRowList(inputFile);
 
             // GET MATCHING LIST - UPDATE DATABASE VALUE
-            HashMap<String, BigDecimal> matchingMap = MatchingService.getMatchingMap(vendorList);
+            HashMap<String, BigDecimal> matchingMap = MetadataServiceImpl.getMatchingMap(vendorList);
             matchingMap.put(SCOConstants.COUNT_ROW, BigDecimal.valueOf(vendorList.size()));
 //            bbsossezForumPost.setFileCountRow(matchingMap.get(SCOConstants.COUNT_ROW).intValue());
 //            bbsossezForumPost.setFileCountAliasMatch(matchingMap.get(SCOConstants.COUNT_MATCH_MULTI).intValue());

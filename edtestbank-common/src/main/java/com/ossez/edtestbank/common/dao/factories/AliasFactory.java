@@ -1,7 +1,7 @@
 package com.ossez.edtestbank.common.dao.factories;
 
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.Alias;
+import com.ossez.edtestbank.common.model.entity.Alias;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

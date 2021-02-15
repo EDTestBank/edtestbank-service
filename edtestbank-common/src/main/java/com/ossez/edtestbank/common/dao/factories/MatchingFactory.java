@@ -4,7 +4,7 @@ package com.ossez.edtestbank.common.dao.factories;
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.SCOConstants;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.*;
+import com.ossez.edtestbank.common.model.entity.*;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.hibernate.Criteria;

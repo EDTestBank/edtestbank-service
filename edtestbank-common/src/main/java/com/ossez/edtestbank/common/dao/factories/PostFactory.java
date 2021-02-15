@@ -3,9 +3,8 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.BBSOssezForumAttach;
-import com.ossez.edtestbank.common.models.orm.BBSOssezForumPost;
-import com.ossez.edtestbank.common.models.orm.CommonManufacturer;
+import com.ossez.edtestbank.common.model.entity.BBSOssezForumAttach;
+import com.ossez.edtestbank.common.model.entity.BBSOssezForumPost;
 import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;

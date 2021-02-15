@@ -1,15 +1,13 @@
-package com.ossez.edtestbank.common.models;
+package com.ossez.edtestbank.common.model;
 
 import com.ossez.edtestbank.common.dao.DataObject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 
 @Entity

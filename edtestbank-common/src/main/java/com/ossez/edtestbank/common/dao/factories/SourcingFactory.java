@@ -3,7 +3,7 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.Question;
+import com.ossez.edtestbank.common.model.entity.Question;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;

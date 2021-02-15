@@ -3,8 +3,8 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.REListing;
-import com.ossez.edtestbank.common.models.orm.TestBank;
+import com.ossez.edtestbank.common.model.entity.REListing;
+import com.ossez.edtestbank.common.model.entity.TestBank;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.slf4j.Logger;

@@ -1,10 +1,6 @@
 package com.ossez.edtestbank.tests;
 
-import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
-import com.ossez.edtestbank.common.models.orm.Question;
-import com.ossez.edtestbank.common.models.orm.QuestionTitle;
-import com.ossez.edtestbank.common.models.orm.TestBank;
-import com.ossez.edtestbank.common.service.QuestionService;
+import com.ossez.edtestbank.common.model.entity.TestBank;
 import com.ossez.edtestbank.common.service.TestBankService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

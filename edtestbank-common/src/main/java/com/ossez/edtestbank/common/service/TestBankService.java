@@ -1,10 +1,7 @@
 package com.ossez.edtestbank.common.service;
 
-import com.ossez.edtestbank.common.dao.factories.QuestionFactory;
 import com.ossez.edtestbank.common.dao.factories.TestBankFactory;
-import com.ossez.edtestbank.common.models.orm.Question;
-import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.TestBank;
+import com.ossez.edtestbank.common.model.entity.TestBank;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

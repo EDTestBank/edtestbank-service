@@ -2,9 +2,9 @@ package com.ossez.edtestbank.common.dao.factories;
 
 import com.google.common.collect.Lists;
 import com.ossez.edtestbank.common.dao.Factory;
-import com.ossez.edtestbank.common.models.orm.Question;
-import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.QuestionTitle;
+import com.ossez.edtestbank.common.model.entity.Question;
+import com.ossez.edtestbank.common.model.entity.QuestionIndex;
+import com.ossez.edtestbank.common.model.entity.QuestionTitle;
 import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;

@@ -29,17 +29,17 @@
 		<property name="hibernate.search.default.indexBase">/var/lucene/indexes/5</property>
 
 
-		<mapping class="com.ossez.edtestbank.common.models.orm.BBSOssezForumAttach"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.BBSOssezForumPost"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.Question"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionIndex"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionTitle"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.QuestionDescription"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.REListing"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.Subject"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.TestBank"/>
-		<mapping class="com.ossez.edtestbank.common.models.orm.TestBankSubject"/>
-		<mapping class="com.ossez.edtestbank.common.models.CacheTestBankImport"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.BBSOssezForumAttach"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.BBSOssezForumPost"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.Question"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.QuestionIndex"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.QuestionTitle"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.QuestionDescription"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.REListing"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.Subject"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.TestBank"/>
+		<mapping class="com.ossez.edtestbank.common.model.entity.TestBankSubject"/>
+		<mapping class="com.ossez.edtestbank.common.model.CacheTestBankImport"/>
 		<event type="delete">
 			<listener class="com.ossez.edtestbank.common.dao.DeleteEventListener" />
 		</event>

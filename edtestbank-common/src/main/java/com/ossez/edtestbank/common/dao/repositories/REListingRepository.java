@@ -1,6 +1,6 @@
 package com.ossez.edtestbank.common.dao.repositories;
 
-import com.ossez.edtestbank.common.models.orm.REListing;
+import com.ossez.edtestbank.common.model.entity.REListing;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
