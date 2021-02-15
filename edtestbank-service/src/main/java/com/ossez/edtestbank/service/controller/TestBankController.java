@@ -1,10 +1,9 @@
 package com.ossez.edtestbank.service.controller;
 
 
-import com.ossez.edtestbank.common.SCOConstants;
-import com.ossez.edtestbank.common.models.orm.Question;
-import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.TestBank;
+import com.ossez.edtestbank.common.model.entity.Question;
+import com.ossez.edtestbank.common.model.entity.QuestionIndex;
+import com.ossez.edtestbank.common.model.entity.TestBank;
 import com.ossez.edtestbank.common.service.QuestionService;
 import com.ossez.edtestbank.common.service.TestBankService;
 import org.apache.commons.lang3.StringUtils;

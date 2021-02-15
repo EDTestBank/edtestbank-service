@@ -1,11 +1,9 @@
 package com.ossez.edtestbank.service.controller;
 
 
-import com.ossez.edtestbank.common.models.orm.QuestionIndex;
-import com.ossez.edtestbank.common.models.orm.REListing;
-import com.ossez.edtestbank.common.models.request.RealEstateRequest;
-import com.ossez.edtestbank.common.service.ListingService;
-import com.ossez.edtestbank.common.service.QuestionService;
+import com.ossez.edtestbank.common.model.entity.REListing;
+import com.ossez.edtestbank.common.model.request.RealEstateRequest;
+import com.ossez.edtestbank.common.service.intf.ListingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

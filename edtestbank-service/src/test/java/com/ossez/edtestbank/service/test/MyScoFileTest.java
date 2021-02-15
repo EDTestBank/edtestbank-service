@@ -2,8 +2,6 @@ package com.ossez.edtestbank.service.test;
 
 import com.ossez.edtestbank.common.dao.Factory;
 import com.ossez.edtestbank.common.dao.factories.IndexFactory;
-import com.ossez.edtestbank.common.dao.factories.PostFactory;
-import com.ossez.edtestbank.common.models.orm.BBSOssezForumPost;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
